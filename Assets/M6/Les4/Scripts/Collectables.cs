@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public class Collectables : MonoBehaviour
 {
     [SerializeField] private int scoreValue = 1;
 

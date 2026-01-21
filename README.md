@@ -105,61 +105,233 @@ This repository highlights progress made throughout the **Prog-1.5** course — 
 Each lesson builds upon the previous one, showing a steady improvement in coding structure, reusability, and project organization.
 
 
-## **M6 Lesson 1**
-# Inventory System – Code Conventions Assignment
+# PROG – Module 6  Assignments (README)
 
-## Assignment Description
-For this lesson, I created an **Inventory System** following Unity’s code conventions.  
-The system uses a **base class, inheritance, a List, clean structure, correct naming rules, serializefields**, and clear English comments.
-
-The Inventory System works fully in the **Console**, where the player can pick up or drop items using keyboard inputs.
+Deze README bevat de uitgewerkte opdrachten voor **Module 6** (OOP, data-structures, delegates, UML, clean code patterns) en is klaar om in te leveren.
 
 ---
 
-## Features
+## M6 Lesson 1 — Inventory System (Code Conventions)
 
-### InventoryItem (base class)
-Shared data for all item types.
+**Omschrijving**  
+Een console-based Inventory System dat Unity code conventies volgt: PascalCase voor classes/public methods, camelCase + `_underscore` voor private fields, `[SerializeField]` voor inspector-velden, nette script layout en Engelse comments.
 
-### Three item types (inheritance)
-- WeaponItem  
-- MedipackItem  
-- KeycardItem  
+**Features**
+- `InventoryItem` (base class)
+- Inheritance: `WeaponItem`, `MedipackItem`, `KeycardItem`
+- `InventorySystem` met `List<InventoryItem>` voor add/remove en console output
+- Input controls:
+  - `G` → Pick up gun
+  - `M` → Pick up medipack
+  - `K` → Pick up keycard
+  - `1` → Drop gun
+  - `2` → Drop medipack
+  - `3` → Drop keycard
 
-### InventorySystem
-Handles:
-- Adding items  
-- Removing items  
-- Console output  
-- A `List<InventoryItem>`  
+**Scripts**  
+https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les%201
 
-### Input controls
-- **G** → Pick up gun  
-- **M** → Pick up medipack  
-- **K** → Pick up keycard  
-- **1** → Drop gun  
-- **2** → Drop medipack  
-- **3** → Drop keycard  
+**Demo GIF**  
+![M6 Lesson 1](GifsForReadme/Gif-M6-L1.gif)
 
 ---
 
-## Code Structure
-The system follows Unity conventions:
-- PascalCase for classes and public methods  
-- camelCase with `_underscore` for private fields  
-- Script layout: fields → properties → MonoBehaviours → public methods → private methods  
-- English comments and summaries  
-- `[SerializeField]` for Inspector values  
+## M6 Lesson 2 — Class Diagrams (UML & Mermaid)
+
+**Onderwerp**
+- Unified Modeling Language (UML)
+- Class diagrams: attributes (variables) en operations (methods)
+- Overerving (generalization) en dependencies
+
+**Mermaid**
+Gebruik Mermaid in je Markdown (`.md`) om diagrammen direct te renderen in GitHub / VSCode (met Mermaid Preview).
+
+**Voorbeeld Mermaid (Tower Defense):**
+```mermaid
+---
+Title: Class Diagram Tower Defense
+---
+classDiagram
+
+class Tower {
+    + string name
+    + int level
+    + Shoot()
+    - CalculateDamage()
+}
+
+class Enemy {
+    + float health
+    + Move()
+    + TakeDamage(float)
+}
+
+class WaveManager {
+    + List<Enemy> enemies
+    + SpawnWave()
+}
+
+```
+
+Tower --|> Weapon // voorbeeld inheritance
+WaveManager ..> Enemy // dependency
+
+### Opdracht
+Maak **ClassDiagramTD.md**.
+
+Verwerk **alle classes uit het Tower Defense project**, inclusief:
+- Attributen (variables)
+- Methodes (functions)
+- Overerving (inheritance)
+- Dependencies (gebruik/relaties tussen classes)
+
+Het class diagram is opgesteld met **Mermaid UML** en opgeslagen in een apart Markdown-bestand:
+`ClassDiagramTD.md`.
+
+Dit diagram geeft een duidelijk overzicht van de architectuur en structuur van het Tower Defense project.
+
 
 ---
 
-## Scripts
-Link to all related scripts:
+## M6 Lesson 3 — Data Structures in Unity
 
- **[M6-Les-1-Scripts](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les%201)**
+**Onderwerpen**
+- Stack vs Heap
+- Classes vs Structs
+- Enums & ScriptableObjects
+- Wanneer gebruik je welk datatype
+
+**Opdracht — Inventory & Item Management**
+- `ItemType` (Enum)
+- `ItemStats` (Struct)
+- `Item` (Class)
+- `ItemTemplate` (ScriptableObject)
+- `Inventory` script dat templates laadt, runtime `Item` instanties maakt en items filtert op `ItemType`.
+
+**Scripts**  
+https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les3
+
+**Demo GIF**  
+![M6 Lesson 3](GifsForReadme/Les3.gif)
 
 ---
 
-## Demo GIF
-![Gif](GifsForReadme/Gif-M6-L1.gif)
+## M6 Lesson 4 — Delegates & Events
+
+**Onderwerpen**
+- Delegates, Actions, Events
+- Loose coupling, subscribe/unsubscribe, static events
+
+**Opdracht**
+- Score collection / UI update via `Action` events (UI luistert naar score changes)
+
+**Scripts**  
+https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les4/Scripts
+
+**Demo GIF**  
+![M6 Lesson 4](GifsForReadme/Les4.gif)
+
+---
+
+## M6 Lesson 5 — Abstractie & Collectables
+
+**Opdracht**
+- Abstracte base class `Collectable` met `OnCollect()`
+- Concrete collectables: `HealthPickup`, `CoinPickup`, `DamageTrap`
+- `CollectibleManager` houdt alle collectables bij en print remaining count bij pickup
+
+**Scripts**  
+https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les5
+
+**Demo GIF**  
+![M6 Lesson 5](GifsForReadme/Les5.gif)
+
+---
+
+## M6 Lesson 6 — Polymorfisme (Battle Arena)
+
+**Opdracht**
+- `Enemy` base class (virtual methods)
+- `Zombie`, `Goblin`, `Dragon` (override behavior)
+- `BattleManager` toont polymorfisme in de console
+
+**Scripts**  
+https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les6
+
+**Demo GIF**  
+![M6 Lesson 6](GifsForReadme/Les6.gif)
+
+---
+
+## M6 Les7 — Early Return Patterns (Flatten the Pyramid)
+
+### Doel
+Maak geneste code leesbaarder door gebruik te maken van **guard clauses** en **early returns**.  
+Hierdoor wordt de code overzichtelijker, beter onderhoudbaar en eenvoudiger te debuggen.
+
+### Voorbeeld (refactored code)
+
+```csharp
+public bool IsPlayerReadyToAttack(Player player)
+{
+    if (player == null) return false;
+    if (!player.IsAlive) return false;
+    if (player.AttackCooldown > 0) return false;
+    if (player.Target == null) return false;
+    if (!player.Target.IsAlive) return false;
+
+    float distance = Vector3.Distance(
+        player.transform.position,
+        player.Target.transform.position
+    );
+
+    if (distance >= 5f) return false;
+
+    bool hasResources =
+        (player.Mana >= 20 && player.WeaponEquipped) ||
+        (player.Health > 30 && player.HasBuff("Strength"));
+
+    if (!hasResources) return false;
+    if (player.IsStunned || player.IsSlowed) return false;
+
+    return true;
+}
+```
+
+## How to Run / Play notes
+
+### Inventory System (M6 L1)
+Druk **Play** in Unity en gebruik:  
+- **G, M, K** om items op te pakken  
+- **1, 2, 3** om items te droppen  
+
+Output verschijnt in de **Console**.
+
+### BattleManager (M6 L6)
+- **SPATIE** → enemies attack  
+- **D** → enemies take damage  
+
+Alle acties worden gelogd in de **Console**.
+
+### Inventory & Item Management (M6 L3)
+Sleep **ItemTemplate** assets in de **Inspector** en druk **Play**.
+
+---
+
+## Repositories & Script-locaties
+
+- **Les 1 (Inventory System):**  
+[https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les%201](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les%201)
+
+- **Les 3 (Data Structures):**  
+[https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les3](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les3)
+
+- **Les 4 (Delegates & Events):**  
+[https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les4/Scripts](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les4/Scripts)
+
+- **Les 5 (Abstractie & Collectables):**  
+[https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les5](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les5)
+
+- **Les 6 (Polymorfisme):**  
+[https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les6](https://github.com/zmbfiedk/Prog_Leerjaar-2/tree/main/Assets/M6/Les6)
 

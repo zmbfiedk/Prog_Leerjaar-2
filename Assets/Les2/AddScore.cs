@@ -11,12 +11,12 @@ public class AddScore : MonoBehaviour
         text = GetComponent<TextMeshProUGUI>(); 
         text.text = "Score: " + score;
 
-        CoinPickup.OnAddScore += AddScoreMethod;
+        CoinPickups.OnAddScore += AddScoreMethod;
     }
 
     void OnDestroy()
     {
-       CoinPickup.OnAddScore -= AddScoreMethod;
+       CoinPickups.OnAddScore -= AddScoreMethod;
     }
 
     private void AddScoreMethod()

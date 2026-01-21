@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CoinPickup : MonoBehaviour
+public class CoinPickups : MonoBehaviour
 {
 
     public static event Action OnAddScore;
