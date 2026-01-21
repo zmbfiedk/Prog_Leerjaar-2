@@ -297,6 +297,7 @@ public bool IsPlayerReadyToAttack(Player player)
     return true;
 }
 ```
+---
 
 ## How to Run / Play notes
 
